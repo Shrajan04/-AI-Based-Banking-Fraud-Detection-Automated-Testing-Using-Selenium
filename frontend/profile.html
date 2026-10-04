@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank</div>
+    <div class="nav">
+      <a href="dashboard.html" id="navDashboard">Dashboard</a>
+      <a href="transfer.html" id="navTransfer">Transfer Money</a>
+      <a href="transactions.html" id="navTransactions">Transactions</a>
+      <a href="profile.html" id="navProfile" class="active">Profile</a>
+      <button type="button" id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <div class="container narrow">
+    <h1>My Profile</h1>
+    <div class="card hidden" id="profileCard">
+      <table>
+        <tr><th>Full Name</th><td id="profileName"></td></tr>
+        <tr><th>Username</th><td id="profileUsername"></td></tr>
+        <tr><th>Email</th><td id="profileEmail"></td></tr>
+        <tr><th>Phone</th><td id="profilePhone"></td></tr>
+        <tr><th>Account Number</th><td id="profileAccountNumber"></td></tr>
+        <tr><th>Balance</th><td id="profileBalance"></td></tr>
+        <tr><th>Member Since</th><td id="profileCreatedAt"></td></tr>
+      </table>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script>
+    setupLogout();
+    (async () => {
+      const data = await api('GET', '/user/profile');
+      if (!data.success) { window.location.href = 'login.html'; return; }
+      const u = data.user;
+      document.getElementById('profileName').textContent = u.name;
+      document.getElementById('profileUsername').textContent = u.username;
+      document.getElementById('profileEmail').textContent = u.email;
+      document.getElementById('profilePhone').textContent = u.phone;
+      document.getElementById('profileAccountNumber').textContent = u.accountNumber;
+      document.getElementById('profileBalance').textContent = formatINR(u.balance);
+      document.getElementById('profileCreatedAt').textContent = formatDate(u.createdAt);
+      document.getElementById('profileCard').classList.remove('hidden');
+    })();
+  </script>
+</body>
+</html>

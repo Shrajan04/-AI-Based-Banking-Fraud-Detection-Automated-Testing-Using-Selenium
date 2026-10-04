@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Tools - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand"><a href="index.html" style="color:#fff;text-decoration:none">FraudGuard Bank</a> <small>Test Tools</small></div>
+    <div class="nav"><a href="login.html">Login</a></div>
+  </div>
+  <div class="container narrow">
+    <div class="card">
+      <h1>Reset Demo Data</h1>
+      <p>Opening this page deletes all users, transactions and alerts and loads the
+         original demo data again. Every Selenium test opens this page first so
+         the tests always start from the same state. You are also logged out.</p>
+      <div id="resetStatus" class="message"></div>
+      <p id="resetSummary" class="hint"></p>
+      <button type="button" class="btn" id="resetButton">Reset Again</button>
+      <p class="hint">Works only when the backend runs with TEST_MODE=true.</p>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script>
+    async function resetData() {
+      hideMessage('resetStatus');
+      document.getElementById('resetSummary').textContent = 'Resetting...';
+      const data = await api('POST', '/test/reset');
+      if (data.success) {
+        showMessage('resetStatus', data.message, 'success');
+        const s = data.summary;
+        document.getElementById('resetSummary').textContent =
+          `Loaded ${s.users} users, ${s.transactions} transactions and ${s.alerts} fraud alerts.`;
+      } else {
+        showMessage('resetStatus', data.message, 'error');
+        document.getElementById('resetSummary').textContent = '';
+      }
+    }
+    document.getElementById('resetButton').addEventListener('click', resetData);
+    resetData();
+  </script>
+</body>
+</html>

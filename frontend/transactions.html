@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank</div>
+    <div class="nav">
+      <a href="dashboard.html" id="navDashboard">Dashboard</a>
+      <a href="transfer.html" id="navTransfer">Transfer Money</a>
+      <a href="transactions.html" id="navTransactions" class="active">Transactions</a>
+      <a href="profile.html" id="navProfile">Profile</a>
+      <button type="button" id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Transaction History</h1>
+    <div id="pageError" class="message"></div>
+    <div class="card">
+      <div class="toolbar">
+        <div class="form-group">
+          <label for="filterStatus">Filter by Status</label>
+          <select id="filterStatus">
+            <option value="ALL">All</option>
+            <option value="APPROVED">Approved</option>
+            <option value="SUSPICIOUS">Suspicious</option>
+            <option value="BLOCKED">Blocked</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="searchTransaction">Search</label>
+          <input type="text" id="searchTransaction" placeholder="Transaction ID, account, amount...">
+        </div>
+        <button type="button" class="btn" id="searchButton">Search</button>
+        <button type="button" class="btn grey" id="clearSearchButton">Clear</button>
+      </div>
+      <p id="transactionCount"></p>
+      <div class="table-wrap">
+        <table id="transactionTable">
+          <thead>
+            <tr>
+              <th>Transaction ID</th><th>Date</th><th>Sender</th><th>Receiver</th><th>Amount</th>
+              <th>Risk Score</th><th>Risk Level</th><th>Status</th><th>Fraud Reason</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>

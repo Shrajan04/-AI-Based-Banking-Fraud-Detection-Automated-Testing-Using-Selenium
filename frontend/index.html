@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudGuard Bank - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank <small>Fraud Detection &amp; Testing Project</small></div>
+    <div class="nav">
+      <a href="login.html" id="homeLoginLink">Login</a>
+      <a href="register.html" id="homeRegisterLink">Register</a>
+      <a href="admin-login.html" id="homeAdminLink">Admin</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1>AI-Based Banking Fraud Detection &amp; Automated Testing Using Selenium</h1>
+      <p>This is a simulated online banking system built as a software testing college project.
+         Every money transfer is checked by a rule-based fraud detection engine which gives a
+         <b>risk score (0-100)</b>, a <b>risk level</b> (LOW / MEDIUM / HIGH) and the <b>reasons</b> for the score.</p>
+      <ul>
+        <li><span class="status-APPROVED badge">LOW (0-29)</span> - transaction approved</li>
+        <li><span class="status-SUSPICIOUS badge">MEDIUM (30-59)</span> - approved with a warning, fraud alert created</li>
+        <li><span class="status-BLOCKED badge">HIGH (60-100)</span> - transaction blocked, fraud alert created</li>
+      </ul>
+      <p>
+        <a class="btn" href="login.html" id="startLoginButton">Customer Login</a>
+        <a class="btn grey" href="admin-login.html" id="startAdminButton">Admin Login</a>
+      </p>
+      <p class="hint">No real banking data is used. Test tools: <a href="reset.html" id="testToolsLink">Reset demo data</a></p>
+    </div>
+  </div>
+  <footer>FraudGuard Bank - Student Software Testing Project</footer>
+</body>
+</html>

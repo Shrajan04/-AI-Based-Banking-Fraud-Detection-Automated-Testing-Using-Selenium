@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank</div>
+    <div class="nav">
+      <a href="dashboard.html" id="navDashboard" class="active">Dashboard</a>
+      <a href="transfer.html" id="navTransfer">Transfer Money</a>
+      <a href="transactions.html" id="navTransactions">Transactions</a>
+      <a href="profile.html" id="navProfile">Profile</a>
+      <button type="button" id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="pageError" class="message"></div>
+    <div id="dashboardContent" class="hidden">
+      <h1 id="welcomeMessage"></h1>
+      <div id="dashboardAlert" class="message"></div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Account Holder</div>
+          <div class="value" id="userName"></div>
+          <div class="hint">Username: <span id="userUsername"></span></div>
+        </div>
+        <div class="stat">
+          <div class="label">Account Number</div>
+          <div class="value" id="accountNumber"></div>
+        </div>
+        <div class="stat green">
+          <div class="label">Current Balance</div>
+          <div class="value" id="currentBalance"></div>
+        </div>
+        <div class="stat">
+          <div class="label">Total Transactions</div>
+          <div class="value" id="totalTransactions"></div>
+        </div>
+        <div class="stat orange">
+          <div class="label">Suspicious / Blocked (sent)</div>
+          <div class="value" id="suspiciousCount"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Recent Transactions</h2>
+        <div class="table-wrap">
+          <table id="recentTransactionsTable">
+            <thead>
+              <tr><th>Transaction ID</th><th>Date</th><th>Type</th><th>Other Account</th><th>Amount</th><th>Risk Level</th><th>Status</th></tr>
+            </thead>
+            <tbody id="recentTransactionsBody"></tbody>
+          </table>
+        </div>
+        <p><a href="transactions.html" id="viewAllTransactionsLink">View all transactions</a> |
+           <a href="transfer.html" id="newTransferLink">Make a transfer</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

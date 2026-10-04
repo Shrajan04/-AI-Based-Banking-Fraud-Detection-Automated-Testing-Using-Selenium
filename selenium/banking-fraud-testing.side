@@ -1,0 +1,4715 @@
+{
+  "id": "e13fd85c-f042-49b2-89d6-77996bb56ed5",
+  "version": "2.0",
+  "name": "AI Banking Fraud Detection Testing",
+  "url": "http://localhost:3000",
+  "tests": [
+    {
+      "id": "a7380145-783d-4f62-957c-6989804af3c4",
+      "name": "Helper - Reset Demo Data",
+      "commands": [
+        {
+          "id": "7f1d4451-4330-4d60-9252-ffb512afbdcb",
+          "comment": "Reloads the demo data and logs out (TEST_MODE only)",
+          "command": "open",
+          "target": "/reset.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "51b7dd1c-2ae3-400b-a151-7248ae1da718",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "27bff61e-3972-4bd6-9222-862abe080902",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=resetStatus",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "c04e8d59-b1bf-478b-a282-a27787e8e061",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resetStatus",
+          "targets": [],
+          "value": "Demo data has been reset."
+        }
+      ]
+    },
+    {
+      "id": "37fe78c0-8714-4494-b66b-ef22eccd5459",
+      "name": "Helper - Login User",
+      "commands": [
+        {
+          "id": "ce2a4641-16aa-48a3-abff-48c42e1398e0",
+          "comment": "Uses variables ${loginUser} and ${loginPass}",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "93c5c2c6-a6f6-4ead-b628-1dfe4c10910d",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9a036e8d-13d7-4e29-8e3b-60b4261ca51a",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Login - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1a9de7e7-4b1e-4197-ac83-af8a2ad59294",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "${loginUser}"
+        },
+        {
+          "id": "c902c249-6896-42a2-b731-0ddcd2ff8215",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4cd0d69c-aa1d-4b70-9711-2568ced66c8a",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "${loginPass}"
+        },
+        {
+          "id": "2f18e01b-867c-498c-9c2a-6a4140865189",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "81a5e1ef-5623-4ef4-8d93-1d37d6d80828",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4c153a4c-ed67-46c2-831e-609cb76af534",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d7f5fdd0-d836-496c-8944-9864f12edcdb",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": "10000"
+        }
+      ]
+    },
+    {
+      "id": "c9e8ef8e-950a-4805-83df-74d2bb0d5576",
+      "name": "Helper - Login Admin",
+      "commands": [
+        {
+          "id": "457c37fd-3b7a-42d9-a0ed-cbaa5ad2c54a",
+          "comment": "",
+          "command": "open",
+          "target": "/admin-login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0b954c75-e6b7-4e6b-9e90-6279ac663a1b",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "72336557-26c4-47f8-86a6-314bec2eddf6",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminUsername",
+          "targets": [],
+          "value": "admin"
+        },
+        {
+          "id": "f7eff248-0060-4e86-9863-65c9571491f5",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "98a999d0-8281-4771-9784-5e70ddae3c85",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminPassword",
+          "targets": [],
+          "value": "Admin@123"
+        },
+        {
+          "id": "eef88ee7-e0d2-4c36-874b-3d935ef03832",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ac4d364a-8cf0-442b-9d91-c73f673c8835",
+          "comment": "",
+          "command": "click",
+          "target": "id=adminLoginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3153897c-879c-4fc0-b622-5c55f7875fa2",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fce2ab95-b621-4d4b-b8d5-de48f0498eb6",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminContent",
+          "targets": [],
+          "value": "10000"
+        }
+      ]
+    },
+    {
+      "id": "ddd5109d-28dc-4fae-8d66-94c6dca054be",
+      "name": "Helper - Open Transfer Page",
+      "commands": [
+        {
+          "id": "d3b4af1d-cd81-4834-bcaa-3a186ae85b28",
+          "comment": "",
+          "command": "open",
+          "target": "/transfer.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "accbddab-22bc-4dc1-bfbf-b84422996432",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "61fa0ef5-e7c3-458d-a7d0-80d47dfadba0",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=testTimeSection",
+          "targets": [],
+          "value": "10000"
+        }
+      ]
+    },
+    {
+      "id": "1c5730e3-1241-4075-b681-f35f53cb4baf",
+      "name": "Helper - Submit Transfer",
+      "commands": [
+        {
+          "id": "7b4dfdff-a9bd-4d0c-afe3-d28f22c05931",
+          "comment": "Uses variables ${receiver}, ${amount}, ${testTime}",
+          "command": "type",
+          "target": "id=receiverAccount",
+          "targets": [],
+          "value": "${receiver}"
+        },
+        {
+          "id": "95c15190-0cbc-4009-8927-afb31ed559de",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1985fe5f-61f2-47d3-ba81-716197a68f17",
+          "comment": "",
+          "command": "type",
+          "target": "id=transferAmount",
+          "targets": [],
+          "value": "${amount}"
+        },
+        {
+          "id": "b1c6bca5-e3ae-47fa-88c7-0d91f292072c",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7db85afd-67dc-4903-933a-4f287475a63b",
+          "comment": "",
+          "command": "select",
+          "target": "id=timeMode",
+          "targets": [],
+          "value": "label=Custom Test Time"
+        },
+        {
+          "id": "55427f31-e63d-4e1e-bbd8-7fb2faaaae5d",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5cb1bc56-aee6-45aa-b3f8-cde275b54d64",
+          "comment": "",
+          "command": "type",
+          "target": "id=customTime",
+          "targets": [],
+          "value": "${testTime}"
+        },
+        {
+          "id": "dcaa4e6b-4931-4fc6-beda-0776baad93b0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a4bd4862-40c1-47fc-b4ba-042dff57cd89",
+          "comment": "",
+          "command": "click",
+          "target": "id=transferButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "87d4a644-23ee-4a07-b7f4-251d8ce51dae",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b179282c-df2a-430e-b614-924bd7c2c77e",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=transferResult",
+          "targets": [],
+          "value": "10000"
+        }
+      ]
+    },
+    {
+      "id": "a295930d-1d1f-42c8-afa7-f0a7f413c019",
+      "name": "TC-REG-001 Valid registration",
+      "commands": [
+        {
+          "id": "a31b7415-1a02-4983-9665-e46a03c37daf",
+          "comment": "Unique username for every run",
+          "command": "executeScript",
+          "target": "return 'student' + (Date.now() % 1000000);",
+          "targets": [],
+          "value": "newUsername"
+        },
+        {
+          "id": "01df9499-7ba1-4a77-b391-0934977fd44a",
+          "comment": "",
+          "command": "echo",
+          "target": "Registering ${newUsername}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "20992720-01dd-4b07-ad31-e6f29f671036",
+          "comment": "",
+          "command": "open",
+          "target": "/register.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "796424dc-79c4-4fa5-a513-82e72baf8b84",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8bcea15d-3902-458f-92c8-e784df6e32e2",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Register - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6c96f929-7ff5-4d07-81c3-a0d70628a693",
+          "comment": "",
+          "command": "type",
+          "target": "id=regName",
+          "targets": [],
+          "value": "Demo Student"
+        },
+        {
+          "id": "b892c0f5-88e5-4142-8c15-3f7b57f380a9",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "01d908f1-eba3-492a-8fc3-367f15b0e323",
+          "comment": "",
+          "command": "type",
+          "target": "id=regUsername",
+          "targets": [],
+          "value": "${newUsername}"
+        },
+        {
+          "id": "048dbb7b-f7e2-4d4a-9cd9-6451c906600b",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f0291afe-e269-4d66-a4bd-0f711c388568",
+          "comment": "",
+          "command": "type",
+          "target": "id=regEmail",
+          "targets": [],
+          "value": "demo@student.test"
+        },
+        {
+          "id": "bd3da143-dd05-4e3c-b079-14b5fa13c9cb",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ceca5f64-85ee-408e-947c-c8858e12cc51",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPhone",
+          "targets": [],
+          "value": "9876543210"
+        },
+        {
+          "id": "4958cbbf-bc58-4c5d-b184-8ad54cd3bea8",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6a2d43b5-80c5-43ec-b49e-fcfa1b398314",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "84ef706a-94b6-40f9-8315-627c63846a54",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "73b2b110-74af-4fa8-8351-626dfa28ebfb",
+          "comment": "",
+          "command": "type",
+          "target": "id=regConfirmPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "f93798a3-b333-406e-a42d-3c7479a96523",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "86707468-5bd9-4702-a5bb-b4549df39ce4",
+          "comment": "",
+          "command": "type",
+          "target": "id=regInitialBalance",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "a5ede4d1-f438-4a3f-86ea-3fee8ab812d8",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ce1f73b6-292f-4e01-869a-4aaaa1b3110c",
+          "comment": "",
+          "command": "click",
+          "target": "id=registerButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "17026838-9817-429f-9e46-fc5ab88f0009",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "004862c7-3ba1-4267-b501-1dfe69ee9bec",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "c9ec741d-45a4-4e5f-b0ff-44d1f708e216",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "Registration successful."
+        },
+        {
+          "id": "4d2b95e4-2b35-465a-a2ba-609f9906e4d3",
+          "comment": "",
+          "command": "verifyElementPresent",
+          "target": "id=registerAccountNumber",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "618dccfd-bf87-41f3-b3bf-55390c4ec5c1",
+          "comment": "",
+          "command": "storeText",
+          "target": "id=registerAccountNumber",
+          "targets": [],
+          "value": "newAccount"
+        },
+        {
+          "id": "2035125f-a17c-433e-a006-6b21fe52ded7",
+          "comment": "",
+          "command": "echo",
+          "target": "New account number: ${newAccount}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0c5381c5-d947-4ac6-8abd-b3d761608645",
+          "comment": "",
+          "command": "click",
+          "target": "id=goToLoginLink",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d2dcf223-4532-4451-8121-f56342e3653a",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "36656af1-bab9-4b06-a17a-5128378c434f",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "66a53cd7-12f1-460e-b1a0-de594d3e42fc",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "${newUsername}"
+        },
+        {
+          "id": "d6942038-48ab-4154-99b1-b0462f8a7b98",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1751ed9d-5615-4f22-9fd6-fc03c3bc5d4e",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "b6f0aacd-33ab-4d1e-aea5-8e1b11fced27",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "09a6af5c-1e52-468f-8be9-28912d866137",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9c3268c1-2f1b-4420-97e8-490c955d2503",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2e1fcbaa-190a-431c-b942-774ad0198756",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "3c95ac05-3b47-419e-baa8-e38db8b7924f",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=accountNumber",
+          "targets": [],
+          "value": "${newAccount}"
+        },
+        {
+          "id": "8c18a1fc-ff34-4a70-9a37-cf82020542f3",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=currentBalance",
+          "targets": [],
+          "value": "₹10,000.00"
+        }
+      ]
+    },
+    {
+      "id": "4688c90d-0e7e-40c6-994a-01118e50870e",
+      "name": "TC-REG-004 Invalid email",
+      "commands": [
+        {
+          "id": "f009e03b-3e66-403c-af5f-10ead6a5266b",
+          "comment": "",
+          "command": "open",
+          "target": "/register.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e8af8ec7-2f4b-4ba1-9d88-eb5d17a5568e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "605f8621-b949-4753-b70d-5dd0bdf76927",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Register - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e660a3c5-64a1-4b51-98c4-3a97ddb141ce",
+          "comment": "",
+          "command": "type",
+          "target": "id=regName",
+          "targets": [],
+          "value": "Demo Student"
+        },
+        {
+          "id": "4b8bd42a-9f94-440e-9be0-455f84a69a50",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c9f3f43f-7110-4920-9a94-c0436f22caa3",
+          "comment": "",
+          "command": "type",
+          "target": "id=regUsername",
+          "targets": [],
+          "value": "demostudent"
+        },
+        {
+          "id": "2e5eb9ab-4706-45a3-8962-64773e6ce877",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9f19ea71-c830-4bca-9a30-77b84a037cbc",
+          "comment": "",
+          "command": "type",
+          "target": "id=regEmail",
+          "targets": [],
+          "value": "student.test.com"
+        },
+        {
+          "id": "538be4cb-e164-49ff-94ef-0a1327c6b2f6",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8d6df31c-13a1-444f-87bf-09d539fa79c4",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPhone",
+          "targets": [],
+          "value": "9876543210"
+        },
+        {
+          "id": "2b1ef9e8-419a-4b70-92f1-deea2fad6e8b",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bd33fbb9-5727-4b97-a387-6cc248669568",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "f79d0547-0cdf-4146-ac2c-c0a0ba278a18",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "13da6018-59ca-46ed-bf26-678aea2154e9",
+          "comment": "",
+          "command": "type",
+          "target": "id=regConfirmPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "1c2efb94-d6f4-46b3-8869-174099f9e230",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a3221f03-02de-46e1-872a-192bffe4c861",
+          "comment": "",
+          "command": "type",
+          "target": "id=regInitialBalance",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "14756259-19af-4d3a-98a9-b1f3aef46793",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2bf9c1fc-8894-46ee-9a87-bd008099e577",
+          "comment": "",
+          "command": "click",
+          "target": "id=registerButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "75c9bda3-e0f3-4014-a0ca-dcf4e65f6131",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9a80eab3-39d7-4fc3-b3b3-103e0e70c622",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "145aa8ff-4a17-4452-9069-3eed4083a680",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "Please enter a valid email address."
+        }
+      ]
+    },
+    {
+      "id": "07bee70e-813d-472e-a4df-95ba1b41ac93",
+      "name": "TC-REG-005 Weak password",
+      "commands": [
+        {
+          "id": "1447b442-51cc-4b79-a8e2-3683a70d8dfd",
+          "comment": "",
+          "command": "open",
+          "target": "/register.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5dbb6bf0-2255-4e14-8ed9-3217b116cea7",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "64fd2cbb-a9e9-4155-86dd-e63379840a30",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Register - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9e69dc4e-ec40-4bd1-8fb3-1088403ce8ac",
+          "comment": "",
+          "command": "type",
+          "target": "id=regName",
+          "targets": [],
+          "value": "Demo Student"
+        },
+        {
+          "id": "50e1b3c9-032c-4e4b-ac2a-ed1af6340b3a",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "130cff16-1abf-445d-8bb9-9b4f0a2c3737",
+          "comment": "",
+          "command": "type",
+          "target": "id=regUsername",
+          "targets": [],
+          "value": "demostudent"
+        },
+        {
+          "id": "76db31f4-2599-4823-93fe-a996d7d63a9c",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "74582d37-f2c6-4ce4-a8b8-c6282863a855",
+          "comment": "",
+          "command": "type",
+          "target": "id=regEmail",
+          "targets": [],
+          "value": "demo@student.test"
+        },
+        {
+          "id": "3ab209f6-63da-4177-bec3-600066c37645",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "eb2cc699-a3ab-4d0d-ae15-9e9db5c57016",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPhone",
+          "targets": [],
+          "value": "9876543210"
+        },
+        {
+          "id": "ee55fa8f-558d-4eaf-b954-41c31362f8ec",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f86c52c4-fef7-4f79-a27f-b55871481c35",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPassword",
+          "targets": [],
+          "value": "abc"
+        },
+        {
+          "id": "f69ee72c-21c6-4768-83fa-b8711450bf78",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79263afe-3cc5-4d74-a4d4-65a3118dca9c",
+          "comment": "",
+          "command": "type",
+          "target": "id=regConfirmPassword",
+          "targets": [],
+          "value": "abc"
+        },
+        {
+          "id": "16f348a0-7776-42f1-a982-106f13dfc212",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "487d3ce0-44a4-40ec-8774-fb4e309e481b",
+          "comment": "",
+          "command": "type",
+          "target": "id=regInitialBalance",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "7f22158f-d2bb-40ef-8cd4-7c1ac38300e4",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5185c8a7-328d-44fa-987c-9ca8d753a08c",
+          "comment": "",
+          "command": "click",
+          "target": "id=registerButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bc128be0-4075-45a5-bc79-4c9ebda8e708",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bec5310d-7507-45cc-bbed-c80d3d3e3fcf",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "ab38db5e-93fc-4f03-8d4e-3447bf100c13",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "Password must be at least 6 characters long and contain a number."
+        }
+      ]
+    },
+    {
+      "id": "525dd5da-0c0d-417b-b2e1-c4e0c970404a",
+      "name": "TC-REG-007 Duplicate username",
+      "commands": [
+        {
+          "id": "ea6e000c-0932-43fe-a8b0-a2a04336c5df",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8208a91a-25d4-474e-8418-c1a1d5013e12",
+          "comment": "",
+          "command": "open",
+          "target": "/register.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ff275433-d84d-46c8-8d7b-4bc9afa0393d",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1875f05e-db09-4ed9-a044-568545aff10a",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Register - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1dd0657d-42a0-4d38-a62f-10d8ba3aa0aa",
+          "comment": "",
+          "command": "type",
+          "target": "id=regName",
+          "targets": [],
+          "value": "Demo Student"
+        },
+        {
+          "id": "91741e1e-dc03-4a3f-b81e-2b49c30361f0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "53f9c666-5d3f-43cb-b3be-728a9202ee36",
+          "comment": "",
+          "command": "type",
+          "target": "id=regUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "aca5fc71-7e75-49b5-a798-f8bc2fe059b0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "05bfe6ca-db7b-4803-921f-63b0e92a51a9",
+          "comment": "",
+          "command": "type",
+          "target": "id=regEmail",
+          "targets": [],
+          "value": "demo@student.test"
+        },
+        {
+          "id": "7fc51d2b-97e0-46cc-83ba-eaf3b1f8db29",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c1eb8b37-b3cb-49cf-b5c0-10aa5a1504da",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPhone",
+          "targets": [],
+          "value": "9876543210"
+        },
+        {
+          "id": "27380a79-ac48-43d1-828b-d4fa20ca3046",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9f1edaff-b3f0-4299-9306-c7e53d713c43",
+          "comment": "",
+          "command": "type",
+          "target": "id=regPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "31eb192e-2208-4019-af2c-53076b734560",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8b91b0bc-1a3d-4b4e-92e1-5fb7f9de814b",
+          "comment": "",
+          "command": "type",
+          "target": "id=regConfirmPassword",
+          "targets": [],
+          "value": "Demo@123"
+        },
+        {
+          "id": "5393070c-8e68-4bca-8c83-67d9d5503432",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e3c720b8-e861-46fd-8e35-684c4a424a6b",
+          "comment": "",
+          "command": "type",
+          "target": "id=regInitialBalance",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "058eeb72-cc33-4d62-b4ce-e21ecf5ee80a",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d38aaae4-578f-4670-bea8-afe35a186d4a",
+          "comment": "",
+          "command": "click",
+          "target": "id=registerButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "71ddadca-796e-41c2-97db-19336c9a6ae8",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4f7296ab-2baa-41fd-9707-ea55fd9f402f",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "33e7d487-9f53-4364-a73c-cb52deaf112f",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=registerMessage",
+          "targets": [],
+          "value": "Username already exists."
+        }
+      ]
+    },
+    {
+      "id": "21a3affc-c71d-4a8e-abe6-b64aaf5970c9",
+      "name": "TC-LOG-001 Valid login",
+      "commands": [
+        {
+          "id": "1efdc357-55e2-4276-83a1-97dcd3153181",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6ccc1f0f-dfc3-4731-bd94-ec6600485105",
+          "comment": "",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "00a8be4c-23ce-478d-849c-870cb69c378c",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a4d28b6f-6af7-4048-872d-e6a3b808915e",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "52216d76-2819-4138-a0f5-b820ee7aa036",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7827d79d-b6d9-4130-bd9b-e99fac87cd16",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Test@123"
+        },
+        {
+          "id": "5248ebe6-6004-4ddf-b6a8-0c1f3f0dc560",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2595786a-82d0-4b11-bc55-edfcb350111e",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7b0f7b5a-d6d1-4eab-8347-d4a6086eda47",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fd197b32-1b9a-43ac-a383-b434b6f2b4d9",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "e1df9d20-f653-4811-b22f-d8b815f26ea7",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Dashboard - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b6abcdb3-b15d-4aef-aa5b-0f1a097f3a50",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=welcomeMessage",
+          "targets": [],
+          "value": "Welcome, Test User!"
+        }
+      ]
+    },
+    {
+      "id": "b2cf8979-882c-473e-ac8a-f2e5419ebc8a",
+      "name": "TC-LOG-003 Invalid password",
+      "commands": [
+        {
+          "id": "2bad78c7-bd15-45a7-9e06-15f9cd9fca7b",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3c1016f8-bdb5-4e58-90bc-39603423a77a",
+          "comment": "",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "115934c1-aa3d-417d-95eb-b301cd0b6f55",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "693cc1be-591a-4d17-a5e4-5022dbd386ee",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "39e2b1d7-c72c-4cdb-bea7-4fa21cdb2d3f",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "33756818-8a41-49e4-8846-9a550d80a4ec",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Wrong@123"
+        },
+        {
+          "id": "a8842756-8403-471b-90f1-6e27c72c27ee",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bfb977b5-40d9-425b-8a70-3d96ab44a451",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e1f75e70-de2b-4dbf-a056-8b77d7dd9ef0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9b56d0ea-cf8c-4760-a237-28341638c2d4",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "71cf9406-0a01-406c-b691-23dcf5e43f08",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "Invalid username or password. 2 attempt(s) left."
+        }
+      ]
+    },
+    {
+      "id": "f16e6f1b-51a6-4ec5-a283-3a5944b1e7e3",
+      "name": "TC-LOG-006 Multiple failed login attempts lock the account",
+      "commands": [
+        {
+          "id": "5af4d4c7-39fd-4920-8ce9-6394a6f9f911",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "535fe1c6-8109-4cd6-9f7f-4880f58ffa76",
+          "comment": "",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c93d8485-2632-46fc-8c77-e8eedacc409d",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3d5281b4-d638-473f-8180-f111eedd7a8f",
+          "comment": "Enter a wrong password 3 times",
+          "command": "times",
+          "target": "3",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d8a454d7-a212-43e0-b598-0ac1a0d1a404",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "0665c42c-8421-447a-87ea-f459108b258a",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d0e4bfce-ff66-42e5-b224-850a10671a4e",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Wrong@123"
+        },
+        {
+          "id": "8f9f899b-972c-4f9c-8cea-fb167189958e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4356f156-3cad-49b9-b9e2-f3ae84452ca3",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "883daa87-5b0c-4f84-ba6f-75a2402b0c48",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cd20b966-5383-4436-b705-351a991c2808",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "2eead017-b76a-48c2-8d0d-6787e73f794a",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "310215d5-6b8f-4ff7-b68d-e54636ecb546",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "Account temporarily locked due to multiple failed login attempts."
+        },
+        {
+          "id": "8b341b24-d55c-4ed2-aaa0-af861fd1ebc7",
+          "comment": "",
+          "command": "echo",
+          "target": "Even the correct password is now rejected",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ec7444b6-8f7e-4e7c-8381-efa075b85173",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "ad5ba156-8cb5-40e3-94b0-85d1b4071e3c",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d3400573-3fc2-4a58-b58d-d7140a9afbb2",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Test@123"
+        },
+        {
+          "id": "58d8d426-41c6-4750-a7ba-72599ebcf567",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2dcb2045-9209-466a-95d4-c210570b2261",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1111e78e-4814-4934-b95c-b0d2ee43e9ec",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "199ae8cb-c8b1-4849-8ce9-3a5d46a7c4df",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "2637918b-71b8-417c-bba3-dad829b27343",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "Account temporarily locked due to multiple failed login attempts."
+        }
+      ]
+    },
+    {
+      "id": "4cbfcdfd-087a-47fb-9120-bf9770c46122",
+      "name": "TC-LOG-007 Locked account cannot login",
+      "commands": [
+        {
+          "id": "adcbc2f8-86d5-4fa1-8fe4-89e7879d51ea",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5b2e489d-5602-4f0e-a8b2-ae95344236ec",
+          "comment": "",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "60ff677a-041a-4910-9bf0-09360279f483",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b3f46fd6-7d22-403e-8a18-8938d50cf5ae",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "lockeduser"
+        },
+        {
+          "id": "b6678e15-520a-4661-becb-6930b2585878",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "667dba60-2edd-4e40-ae89-401c43d4406f",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Locked@123"
+        },
+        {
+          "id": "c64a9211-e224-44d0-b859-f0c31b5468ad",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0e34053e-8b37-4804-8a18-ac4af3aa4a8f",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b9f746f3-dc04-41ab-8ddd-42aef9912c4a",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "01019bac-940f-4b28-b74c-7f9a6e873228",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "19cdb69b-cb5f-450d-a81e-b9948d3762cd",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "Account temporarily locked due to multiple failed login attempts."
+        },
+        {
+          "id": "3036c16f-6dc6-4b94-a937-c245349e622b",
+          "comment": "",
+          "command": "assertElementNotPresent",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ddd38aa6-a809-4d08-86ea-8a21e2cf6356",
+      "name": "TC-DB-001 Dashboard loads",
+      "commands": [
+        {
+          "id": "2f1e380a-b8a7-48f0-b40a-b1f3e45e3139",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d6ab805d-ac32-4dbc-9e52-c1176dbedf50",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "e67b2245-992e-4096-b840-8cb43a826c63",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "dfa9fcf2-5d06-4d68-90fe-d09c36e8f117",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7d3e7304-0a39-498f-9051-8f4bed4cb6a4",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Dashboard - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "29d0ad22-18f4-4248-a6e5-98265237bbd4",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e8061364-c4af-4b92-a5ac-0f6978d507f9",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=welcomeMessage",
+          "targets": [],
+          "value": "Welcome, Test User!"
+        },
+        {
+          "id": "33210a03-91ea-4597-a3e4-3480b976f527",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=recentTransactionsTable",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "232b448b-c16e-4587-a57a-2a2bcf705bd7",
+      "name": "TC-DB-004 Balance displayed",
+      "commands": [
+        {
+          "id": "46ac9b80-1e41-46a7-a319-af93346f7287",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "078e49b7-92df-43fe-bebf-f0e611d2b565",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "d36195e4-5b8b-45f9-9069-b08fdfeb1015",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "7250f661-285c-426d-aa5f-29fb2a7127e9",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "934c2d55-c6c4-46f8-a064-90249ba90de1",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=currentBalance",
+          "targets": [],
+          "value": "₹50,000.00"
+        }
+      ]
+    },
+    {
+      "id": "adcc1a80-12bd-4870-9630-60ab3f2a1b06",
+      "name": "TC-DB-006 Navigation links work",
+      "commands": [
+        {
+          "id": "0ae7d73b-39fe-46f9-8a28-5a860538382a",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ae4ee3b4-5429-4213-80d8-e40f9a65b004",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "c893fbc5-3323-40ec-a034-6fc6ab271d2c",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "8fca3d56-1251-4160-a7b5-a25b6d20b92c",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79a405ad-2df3-4a38-9656-76c2a93b1aef",
+          "comment": "",
+          "command": "click",
+          "target": "id=navTransfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "25cad96e-742e-4433-b264-c456eedd8de9",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c6bd62d9-07d2-4f76-871c-bcbaf6853226",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=transferButton",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "0cbc42a7-2121-4cef-822f-cbbd3c3b151f",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Transfer Money - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e632f207-def9-4003-922d-299e4227f0fd",
+          "comment": "",
+          "command": "click",
+          "target": "id=navTransactions",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5475e560-0deb-43d1-9678-0dad7107ed52",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bbc46016-edbb-4c39-927a-07143a15c5c8",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=transactionTable",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "e45b94e2-ab68-4930-94c0-4f4c8956d30c",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Transactions - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "87ffd484-7266-4d7e-afc6-5e335198377d",
+          "comment": "",
+          "command": "click",
+          "target": "id=navProfile",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b08b38c3-a92d-4d6a-9752-a83b2b700772",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a7e758ea-9f08-4960-ad41-cc74fcc72c5d",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=profileCard",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "ebbf850f-66a7-48e3-a151-9e7306b2ec4c",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Profile - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "814fcc37-3f36-4221-b3bb-499d43d74414",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=profileAccountNumber",
+          "targets": [],
+          "value": "10000001"
+        },
+        {
+          "id": "e6e94188-a2b1-4103-83bb-77bd9a3e3145",
+          "comment": "",
+          "command": "click",
+          "target": "id=navDashboard",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0f9644d9-7ee0-4ac6-ba9f-f482ea6270cc",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f93be0e3-02ef-4ca8-87ab-78788c10616b",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "f205ee9a-7dc9-4be3-8c3c-0dd46c284770",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Dashboard - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "6de8b378-ea83-4883-81b7-511656a4d1da",
+      "name": "TC-TR-001 Valid transfer",
+      "commands": [
+        {
+          "id": "9146cdd7-ba35-4e1c-bf56-4dd94393f753",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5629e01a-7cb8-4cc9-9565-716aba3f6060",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "f67dd7e1-9700-4c03-9479-b3af7c233ef5",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "c23bf7eb-4618-4fd6-bf96-206e73337c91",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7cbc665d-b52e-429e-b425-70041fe7532b",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d67f8d1a-0de7-4ece-8178-97f3cc44c833",
+          "comment": "",
+          "command": "type",
+          "target": "id=transferDescription",
+          "targets": [],
+          "value": "Lunch money"
+        },
+        {
+          "id": "e17038d9-1d77-41f5-8f33-48bea47b3829",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a800d2eb-a4ce-472f-a720-cb83345db1de",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "504e0f1a-82b2-4d7e-9cff-3e74a6720d95",
+          "comment": "",
+          "command": "store",
+          "target": "2000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "21df7aef-4adb-4903-a692-d4790107927f",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "9c579cf3-412d-4d9a-b603-68d266fe7df2",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3659d274-4951-49be-be2b-82d89250cb22",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferSuccess",
+          "targets": [],
+          "value": "Transaction successful."
+        },
+        {
+          "id": "9554ec7e-e75c-43d0-a989-462609379265",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "APPROVED"
+        }
+      ]
+    },
+    {
+      "id": "9cbee24e-e314-424a-b1d5-fc2ec5b48e26",
+      "name": "TC-TR-003 Invalid receiver",
+      "commands": [
+        {
+          "id": "0319c732-f7a8-45b7-aa61-f6d9fe2f92c5",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "30a9de07-b1ba-4976-817a-f4d8423fed8b",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "72191677-18a1-4420-8192-2223e89e7c58",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "ec05af02-6a93-4b25-821b-a503d807ac72",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f415d5cc-f7f5-438f-89f9-dd1ceb23c6ca",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c7c9d591-e311-4964-adf2-9b365f2e8b79",
+          "comment": "",
+          "command": "type",
+          "target": "id=receiverAccount",
+          "targets": [],
+          "value": "99999999"
+        },
+        {
+          "id": "5534af37-5170-456e-981f-8a6652ddc0e7",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fe76e229-0359-4fcf-8043-4f198334f6c9",
+          "comment": "",
+          "command": "type",
+          "target": "id=transferAmount",
+          "targets": [],
+          "value": "1000"
+        },
+        {
+          "id": "e2e05b53-ebf2-4ac1-934f-6602bdac303e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7cc1c512-0d1e-4a09-9ba8-68a5391dcfae",
+          "comment": "",
+          "command": "click",
+          "target": "id=transferButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3ecfe641-10e5-484c-8b35-1ea5f17dd358",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f957db75-c590-420f-ab87-8a6bcfd6238d",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "f5afea31-4dcf-4410-9ec6-56138420772d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "Receiver account not found."
+        },
+        {
+          "id": "4d7e88be-efd1-440e-b1d6-811cdab7bef5",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferBalance",
+          "targets": [],
+          "value": "₹50,000.00"
+        },
+        {
+          "id": "01a0fc3a-d428-4420-9efd-4acfa3d921dd",
+          "comment": "Wrong format",
+          "command": "type",
+          "target": "id=receiverAccount",
+          "targets": [],
+          "value": "12AB"
+        },
+        {
+          "id": "4ae00847-adc3-42e8-aaa4-9c66b9db9da8",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "349f319b-0ace-4eec-a3d6-e24b4e7cfc56",
+          "comment": "",
+          "command": "type",
+          "target": "id=transferAmount",
+          "targets": [],
+          "value": "1000"
+        },
+        {
+          "id": "5e3ad426-ee89-4307-bb2c-7d249839e0e9",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a6faa287-566a-4153-8ac6-30e672ef154f",
+          "comment": "",
+          "command": "click",
+          "target": "id=transferButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7944913a-dafb-498a-9f4c-d96177aa29bc",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "05b5ac4b-a971-4e21-9671-91b8f9226453",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "fb902701-ebef-46b5-af24-547188268157",
+          "comment": "",
+          "command": "verifyText",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "Invalid receiver account number. It must be 8 digits."
+        }
+      ]
+    },
+    {
+      "id": "ecd9a33f-3c98-4c47-ae0e-f5bf6fdeaed2",
+      "name": "TC-TR-007 Insufficient balance",
+      "commands": [
+        {
+          "id": "b0b9ea83-8198-41e2-8032-f58ef959b83b",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2b9a3950-d14a-46da-97e6-e9df31d547c0",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "b7dac67a-554c-4c6d-b915-ea3874a9440c",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "f2d9af30-3589-46c8-834b-27f5b1435bc2",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bc3299f7-1bcb-458e-8ce3-e345c10c59cc",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "38b15fca-e525-4a21-b5ff-dc31e58fe582",
+          "comment": "",
+          "command": "type",
+          "target": "id=receiverAccount",
+          "targets": [],
+          "value": "10000002"
+        },
+        {
+          "id": "ef79e713-c498-480e-a2b4-c23bc5e97077",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e14ea250-c0e6-459d-8d7e-9c38925825c7",
+          "comment": "",
+          "command": "type",
+          "target": "id=transferAmount",
+          "targets": [],
+          "value": "60000"
+        },
+        {
+          "id": "e0e66c66-ba0e-4644-8833-d23bd9695bff",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3f9950a7-9c03-48c0-86a9-309cb4533a8c",
+          "comment": "",
+          "command": "click",
+          "target": "id=transferButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0f2ba448-086d-4246-bcef-32f8d797f6e0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6a3ba449-734f-4fbc-8605-51f7e33bd45a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "8a927a9c-385a-4404-ad75-a1dd1c7e9e8a",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferMessage",
+          "targets": [],
+          "value": "Insufficient balance."
+        },
+        {
+          "id": "0c82d0f5-81e8-4956-96ea-a83f2312e3f0",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferBalance",
+          "targets": [],
+          "value": "₹50,000.00"
+        }
+      ]
+    },
+    {
+      "id": "f5ceb0a6-b172-4307-a411-a81c685704bb",
+      "name": "TC-TR-009 Balance updated correctly",
+      "commands": [
+        {
+          "id": "40c0db36-9ba5-4921-a0f5-168631c1903e",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "71be3fbb-1e3d-45eb-8596-9640ea2cae57",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "735e58d9-291a-4dde-a4fb-fef524713cdd",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "25dc290e-fc95-4135-97b0-1d20d34521a5",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dd079908-4956-4793-8eca-b868e2d733ae",
+          "comment": "",
+          "command": "store",
+          "target": "2000",
+          "targets": [],
+          "value": "transferAmount"
+        },
+        {
+          "id": "44419045-9c80-45a6-b67d-54acdcf762a3",
+          "comment": "",
+          "command": "executeScript",
+          "target": "return String(document.getElementById('currentBalance').dataset.value);",
+          "targets": [],
+          "value": "balanceBefore"
+        },
+        {
+          "id": "4e4fd9e7-b6c4-4a55-b8ce-cb1d486ef778",
+          "comment": "",
+          "command": "echo",
+          "target": "Balance before: ${balanceBefore}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7a96ace3-d664-4548-8c7e-2477f20c61a7",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2ce8d2d4-adc0-4ea7-a3f3-cb9a552c5a8c",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "56b90831-b8a8-47e1-a220-392c6712247c",
+          "comment": "",
+          "command": "store",
+          "target": "${transferAmount}",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "64888cc6-db35-472b-b0c1-d7c1d496a580",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "a638c762-cafe-41be-a0de-640be3353a12",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3b05b690-6e9e-4bd5-bc4e-3aaf80d527aa",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultNewBalance",
+          "targets": [],
+          "value": "₹48,000.00"
+        },
+        {
+          "id": "0e05e131-2c62-4407-aea5-f2b6e73bca95",
+          "comment": "",
+          "command": "open",
+          "target": "/dashboard.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "45d56b37-357b-484f-804c-9d0fadfac1ed",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b4fb7195-b8dd-4455-a054-a658a2e8df39",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=dashboardContent",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "51fa5f4e-6fbd-493b-8e2a-a21cd96a8644",
+          "comment": "",
+          "command": "executeScript",
+          "target": "return String(${balanceBefore} - ${transferAmount});",
+          "targets": [],
+          "value": "expectedBalance"
+        },
+        {
+          "id": "160f7e02-4375-4e2c-9866-fd2d7ec00b49",
+          "comment": "",
+          "command": "executeScript",
+          "target": "return String(document.getElementById('currentBalance').dataset.value);",
+          "targets": [],
+          "value": "balanceAfter"
+        },
+        {
+          "id": "7a1d21fd-9118-46b0-b228-38255357f8bd",
+          "comment": "",
+          "command": "assert",
+          "target": "balanceAfter",
+          "targets": [],
+          "value": "${expectedBalance}"
+        },
+        {
+          "id": "58e09d8e-d2d9-494e-a1f9-7e5e40c00aed",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=currentBalance",
+          "targets": [],
+          "value": "₹48,000.00"
+        },
+        {
+          "id": "58d1cc84-f21c-4b54-aca1-1eaa2740dcf8",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=totalTransactions",
+          "targets": [],
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "id": "99993bbe-c4c0-415f-8c9a-a6017f47e85c",
+      "name": "TC-FD-001 Normal transaction is LOW risk",
+      "commands": [
+        {
+          "id": "cdb84b6f-d64f-4cf2-971e-3a15cfd223c3",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "67d30001-d83e-4272-856d-b44ff4c4ce73",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "4ec52567-01b1-44c3-b7ea-1cf62604338d",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "7b24fc4f-0a2e-4342-ac64-5be1c17e4126",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "27a79904-086e-4dc7-b03d-53ede34f8410",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ca40a654-0b4d-4b17-b23e-358333994f29",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "fb1c393e-3607-407a-ad58-6c9e24190290",
+          "comment": "",
+          "command": "store",
+          "target": "1000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "0d2d50e5-9634-4d0a-aa86-869f024e3260",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "6739bb92-5b7c-4add-b35c-5f235f07c8fd",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fa0549ee-0169-4839-95f3-3020d2b8e477",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskScore",
+          "targets": [],
+          "value": "0"
+        },
+        {
+          "id": "d7d929f2-96f6-48fa-b349-fbbe65769c72",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "LOW"
+        },
+        {
+          "id": "e0fae5b2-fa0f-4407-8738-07d81ae21fb8",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "APPROVED"
+        },
+        {
+          "id": "c1ee4533-a75a-4e6a-b2d0-8449a188730e",
+          "comment": "",
+          "command": "waitForElementNotVisible",
+          "target": "id=fraudAlert",
+          "targets": [],
+          "value": "3000"
+        }
+      ]
+    },
+    {
+      "id": "b009ccd3-aafd-442e-8394-60414742d665",
+      "name": "TC-FD-002 Large transaction is HIGH risk",
+      "commands": [
+        {
+          "id": "15a97d28-2f3f-4ce8-9706-bb495a34fb12",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b67a5a16-a3c6-4330-9704-844b0421fa78",
+          "comment": "",
+          "command": "store",
+          "target": "richuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "d8179610-092d-4957-8b9a-3f077f5ea9fe",
+          "comment": "",
+          "command": "store",
+          "target": "Rich@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "83e2f7b3-bee6-426c-9644-37480136c9e7",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9265bd5c-f979-4cdb-8884-ae39ca663976",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "45682b36-a6cf-4a95-8072-093254923aa8",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "2338d025-5b97-4628-b316-cc539d5429f3",
+          "comment": "",
+          "command": "store",
+          "target": "150000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "7f0b5888-4d54-49f9-9b94-51d2c5b199bd",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "9bf50235-9018-4318-920e-d0f3c628dcbc",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1093ada3-40f6-4ebe-92f3-68e5ebc4d12d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskScore",
+          "targets": [],
+          "value": "60"
+        },
+        {
+          "id": "86b179d4-112e-4817-9e53-01b81cfc2241",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "HIGH"
+        },
+        {
+          "id": "0859efc6-d601-43f7-b110-c22e9321adea",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "xpath=//ul[@id='resultReasons']/li[contains(.,'Very large transaction amount')]",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "dcbc65a6-2774-470b-b57f-a1272fcea5d9",
+      "name": "TC-FD-003 Rapid transactions are suspicious",
+      "commands": [
+        {
+          "id": "ee9c42d8-9c13-4755-ba61-986db4677d7f",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e00051ca-585f-40f5-9809-d14fa4ee23cc",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "8e6b8856-87f2-4b45-99f2-7a82eabc9579",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "5a3caf1e-ab14-4530-9026-f7aa611a91c1",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79916ca6-da70-4c33-8224-0f27e4590cd8",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e7c1d9ad-1c78-4e2b-838a-0202395810be",
+          "comment": "Three quick normal transfers",
+          "command": "times",
+          "target": "3",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a910bf4c-a678-428b-87fc-9828632f4b7f",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "4e52a0d6-88d7-4f34-92a2-c64bb4df2214",
+          "comment": "",
+          "command": "store",
+          "target": "500",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "1e54f233-a428-4976-91b1-b2a5b0425c1f",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "ada1261b-88a4-4aff-a082-bab721ec46f3",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "57483f34-ce34-4428-9c6a-a936f009e87a",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "APPROVED"
+        },
+        {
+          "id": "6ed26ab7-81bc-4ac5-bbbf-68f8f69b8eaa",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3de8e604-bc65-44da-8a19-31795af601b0",
+          "comment": "",
+          "command": "echo",
+          "target": "The 4th transfer within 5 minutes is flagged",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cb504476-1c36-4e7e-8944-b316391e0262",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "a60f83ed-06a4-4ed6-ad65-bee221183dd7",
+          "comment": "",
+          "command": "store",
+          "target": "500",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "3e101460-fa51-4b83-8b5a-65fafc2b381b",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "7b979965-8aba-4972-9ca2-e7f3f12d2148",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bc09c0a5-9a0a-477a-8cd9-df4771766485",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskScore",
+          "targets": [],
+          "value": "30"
+        },
+        {
+          "id": "5be07f30-387f-49f5-a10b-36e7d6004f5d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "SUSPICIOUS"
+        },
+        {
+          "id": "dd2e26d6-5c2b-4883-9068-17d58e1c858f",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=fraudAlert",
+          "targets": [],
+          "value": "Suspicious activity detected. Transaction approved with warning."
+        },
+        {
+          "id": "5ccfd1b9-1c6b-4c21-9d3f-374da52d3634",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "xpath=//ul[@id='resultReasons']/li[contains(.,'Multiple transactions within a short period')]",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "dc17ac7c-75c6-4803-b285-6c9e0dc0fad0",
+      "name": "TC-FD-004 Unusual transaction time is suspicious",
+      "commands": [
+        {
+          "id": "f56c307e-cb63-4d76-8c6c-03b2c3ebf93e",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1c5c4080-e47e-4063-97ae-fb4a5fffacb9",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "af08e93e-a02c-4399-bcc5-5e73f14608f1",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "c870bf0a-3136-43ec-b3f9-c140370357cb",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "46872ba1-474e-4eaa-aed2-8c2b1e8c628b",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "03168dbb-eb6e-42f8-84ee-59d6ec958e66",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "5dc05b4f-92d6-4d6c-b9d8-924db388b3d0",
+          "comment": "",
+          "command": "store",
+          "target": "1000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "2b865fcb-ebe7-421e-a7cc-59ce2328a068",
+          "comment": "",
+          "command": "store",
+          "target": "02:30",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "09ea09ca-f771-41cd-a55c-da8a3266c509",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "410c3a7b-6b24-4b09-be3b-7fb1e4ac8d3d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskScore",
+          "targets": [],
+          "value": "30"
+        },
+        {
+          "id": "817b485b-bd90-47ec-8720-abd6a36a3b8f",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "MEDIUM"
+        },
+        {
+          "id": "8f7acca9-e7ab-406b-8bac-540ffccdd1c9",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "SUSPICIOUS"
+        },
+        {
+          "id": "0c34d028-cd2b-44b0-baef-ac7f11671c8d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultNewBalance",
+          "targets": [],
+          "value": "₹49,000.00"
+        }
+      ]
+    },
+    {
+      "id": "c10dc027-7c5f-47bb-b968-e4cb6fcc75db",
+      "name": "TC-FD-005 Multiple risk factors give HIGH risk",
+      "commands": [
+        {
+          "id": "1321b2c6-1af3-4663-ac1b-79a9b66d5e2e",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "67e68618-0552-4401-884d-e4b4a37f425d",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "9ffbc877-707e-48d8-961e-5a5e54b10eda",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "be0eb80d-9e48-4024-904c-653f67cce00f",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2ebc3393-4172-4323-a3eb-d1e06b200998",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "778751ba-76ab-4a82-bd4a-5974eebf4ad5",
+          "comment": "",
+          "command": "echo",
+          "target": "Night time + new receiver + amount far above the usual pattern",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0889ef3a-03a1-419c-b6d2-5b03ed7f600d",
+          "comment": "",
+          "command": "store",
+          "target": "10000003",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "363e6d66-a736-4bdf-b948-ce495266ef9a",
+          "comment": "",
+          "command": "store",
+          "target": "10000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "86936241-f034-42b2-97c9-0b12ecc84169",
+          "comment": "",
+          "command": "store",
+          "target": "02:30",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "61589b15-a586-481c-ad1b-b18710123ed5",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b317e28-b6e2-41ea-b357-7bf7e132909b",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskScore",
+          "targets": [],
+          "value": "60"
+        },
+        {
+          "id": "5a71530e-6b52-4010-abfa-f64b1be0d482",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "HIGH"
+        },
+        {
+          "id": "7aadef24-e22f-4152-b06d-e3e8b9e8cd75",
+          "comment": "",
+          "command": "executeScript",
+          "target": "return String(document.querySelectorAll('#resultReasons li').length);",
+          "targets": [],
+          "value": "reasonCount"
+        },
+        {
+          "id": "e4803617-36fe-467b-8604-20c0cae01e73",
+          "comment": "",
+          "command": "assert",
+          "target": "reasonCount",
+          "targets": [],
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "8c200354-bfa1-42c4-9591-98578dbe2700",
+      "name": "TC-FD-006 High-risk transaction is blocked",
+      "commands": [
+        {
+          "id": "06326559-823a-45e0-8f91-73d0a6b054cb",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1e8e98dc-3680-4b40-87ea-2718aca74ba2",
+          "comment": "",
+          "command": "store",
+          "target": "richuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "254c3d44-6036-49bb-8a4a-18de9f27ce28",
+          "comment": "",
+          "command": "store",
+          "target": "Rich@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "f393994c-4f4e-4ac0-9166-3c644b2898eb",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "798b70d4-b5ed-4f46-b824-c7dce3ffed4e",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9006ef1d-b5a3-4085-ac33-1b95f38210fd",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "27345165-26bf-4dce-9cbf-fc59b371c819",
+          "comment": "",
+          "command": "store",
+          "target": "150000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "ef37b54f-68fd-4c1b-a521-b867c323d021",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "b811afbf-260f-4301-b332-268ee58be091",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b0790852-2b89-4d48-a1e1-b900f780c921",
+          "comment": "",
+          "command": "storeText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "riskLevel"
+        },
+        {
+          "id": "532b021f-37c8-4aa2-8311-6e0f394b2b84",
+          "comment": "",
+          "command": "if",
+          "target": "${riskLevel} === \"HIGH\"",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f6249cd7-19eb-4849-b75d-853f59454586",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "BLOCKED"
+        },
+        {
+          "id": "f098c7ba-4f41-42fe-8647-489594e84fc2",
+          "comment": "",
+          "command": "echo",
+          "target": "Money must NOT leave the account",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "04fdab70-bc06-4002-a994-2895668535b5",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transferBalance",
+          "targets": [],
+          "value": "₹5,00,000.00"
+        },
+        {
+          "id": "868a666d-f86f-4ae8-99bf-3144e8c8925d",
+          "comment": "",
+          "command": "else",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bad3b8be-8c0b-4ceb-aa70-78d767b1c7c8",
+          "comment": "",
+          "command": "echo",
+          "target": "Unexpected risk level ${riskLevel}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1f0d92ff-c9e0-4931-8479-711ae5bdd479",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultRiskLevel",
+          "targets": [],
+          "value": "HIGH"
+        },
+        {
+          "id": "77b09adb-0165-4e8c-b117-97aab4a03423",
+          "comment": "",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "082140ed-0982-4119-8415-21dd02e7e12f",
+      "name": "TC-TH-001 New transaction appears in history",
+      "commands": [
+        {
+          "id": "45d4da33-2ee5-4d5f-bbf5-13875c7bbec7",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "04db04a2-89b8-4b92-afd9-1f2dc18bcc8f",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "63e8d4f6-1bf1-4781-b669-467a0da2eaf2",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "961fb7ce-eacd-4b95-99c4-aa6078b3eecf",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d574db90-fcb2-4303-8442-52fbf8958645",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2d0599e4-b45b-419b-be01-d089337b0075",
+          "comment": "",
+          "command": "store",
+          "target": "10000002",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "47f5c647-48db-4bb5-8015-c72de8f63ec8",
+          "comment": "",
+          "command": "store",
+          "target": "1000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "baba9761-f589-42e3-8e4e-353c1ef3b67e",
+          "comment": "",
+          "command": "store",
+          "target": "10:00",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "f2c993e0-7494-43fb-b545-6685883ead02",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "26dd1f6a-3f55-4df3-9352-52b1749e9e49",
+          "comment": "",
+          "command": "storeText",
+          "target": "id=resultTransactionId",
+          "targets": [],
+          "value": "txnId"
+        },
+        {
+          "id": "2c2ec8e0-363e-4f52-b9a7-c5364ef859ef",
+          "comment": "",
+          "command": "click",
+          "target": "id=navTransactions",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8a22017d-20e3-43b3-bdac-319ae7b7bb10",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b71ecb4c-d78a-4a56-bf5d-acc15fcb35ff",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=transactionTable",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "df0c77da-7087-4a89-9e43-607c36a16785",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "css=#transactionTableBody tr",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "a27e6320-5c09-4442-a175-d6bda40bbad8",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=txn-${txnId}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3c95e335-f1c9-4da0-bbef-d660d6bed465",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transactionCount",
+          "targets": [],
+          "value": "Showing 6 of 6 transactions"
+        }
+      ]
+    },
+    {
+      "id": "ed12125f-f041-4629-b7cd-da1a663c572a",
+      "name": "TC-TH-006 Search transaction",
+      "commands": [
+        {
+          "id": "7a272dff-a942-4162-a8c9-e2ff27828a7d",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dc7aecb2-efac-47fd-bbbc-d4780e36068b",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "d018454b-1ff7-4a32-81ef-ff3e34ac4725",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "6cde235e-10fd-45dc-b4a3-33fa3f1a4067",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e2f5ac34-7d16-4043-aca5-11ba610b2290",
+          "comment": "",
+          "command": "click",
+          "target": "id=navTransactions",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c2659f76-e36e-424a-9967-b25c28031189",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3a9ad85c-14af-40f9-b666-3144529a27a7",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=transactionTable",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "138e4e86-9d33-47bd-ad3f-52b6cda10836",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "css=#transactionTableBody tr",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "0f747ba8-4d47-48c2-85f4-84ded213a4c8",
+          "comment": "",
+          "command": "type",
+          "target": "id=searchTransaction",
+          "targets": [],
+          "value": "TXN1003"
+        },
+        {
+          "id": "d978377b-6a17-4ad8-a757-032b6c6f24fe",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f60b7b4c-8994-444e-880c-be749bf46292",
+          "comment": "",
+          "command": "click",
+          "target": "id=searchButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5f56e8b3-5513-4406-ae82-7799dfcaf138",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5424cc8b-5d96-4522-bffe-4acf2857f964",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transactionCount",
+          "targets": [],
+          "value": "Showing 1 of 5 transactions"
+        },
+        {
+          "id": "670ecf5b-0c43-484e-97ad-fba1d02970cf",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=txn-TXN1003",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a17fafb7-2ccb-4820-893a-096628e8d204",
+          "comment": "",
+          "command": "assertElementNotPresent",
+          "target": "id=txn-TXN1002",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c9751b4c-5f8d-4650-99c1-e616b614fb1f",
+          "comment": "",
+          "command": "type",
+          "target": "id=searchTransaction",
+          "targets": [],
+          "value": "NOTHING-MATCHES"
+        },
+        {
+          "id": "1c0881e5-29e9-48f5-b5d6-a242f9057e84",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5fb96e41-112f-4715-97a9-e32ffd3c40b8",
+          "comment": "",
+          "command": "click",
+          "target": "id=searchButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ef910c6b-ec4a-4f72-9dbc-00fd02e6dd88",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "39c1f635-32de-4e12-b8f8-754481f4044c",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=noTransactions",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1088325c-391d-44dd-960b-96bf913c5146",
+          "comment": "",
+          "command": "click",
+          "target": "id=clearSearchButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ba0a126e-9f0b-4b9f-862d-09b44c73df5e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c8fb7dc0-7a69-4a08-bf1b-497c39fdf58a",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transactionCount",
+          "targets": [],
+          "value": "Showing 5 of 5 transactions"
+        }
+      ]
+    },
+    {
+      "id": "6599f21e-a615-4c17-b74f-b9e810bf3618",
+      "name": "TC-TH-008 Filter blocked transactions",
+      "commands": [
+        {
+          "id": "17676bff-528b-4bd0-8c40-7e9d4e037ef4",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5ea7b6ae-8117-4a83-9393-c7804c06435e",
+          "comment": "",
+          "command": "store",
+          "target": "testuser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "4ff1a8ed-69cd-4019-9d9d-bbc90cd6c6d2",
+          "comment": "",
+          "command": "store",
+          "target": "Test@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "8a32c2b7-49a6-4d87-b1c5-32fe2fbd57af",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "29c1b5a5-a001-4283-9f9c-164abc4edaaa",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Open Transfer Page",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4bd36825-e0fa-4784-a8e7-c40487dadba9",
+          "comment": "",
+          "command": "store",
+          "target": "10000003",
+          "targets": [],
+          "value": "receiver"
+        },
+        {
+          "id": "864ac168-319a-4ec3-a412-1dd668cdc7c5",
+          "comment": "",
+          "command": "store",
+          "target": "10000",
+          "targets": [],
+          "value": "amount"
+        },
+        {
+          "id": "851f7697-c05f-4057-9ed7-7862cccb1eee",
+          "comment": "",
+          "command": "store",
+          "target": "02:30",
+          "targets": [],
+          "value": "testTime"
+        },
+        {
+          "id": "af9cf4f2-b5b2-497b-8e5e-f45f9015fd53",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Submit Transfer",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ab8a5100-1a8f-4fc9-bdb3-ebfdc8b4c2b6",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=resultStatus",
+          "targets": [],
+          "value": "BLOCKED"
+        },
+        {
+          "id": "c4648620-9875-47d3-8d7f-4050e5fc12a5",
+          "comment": "",
+          "command": "click",
+          "target": "id=navTransactions",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4774e49b-7ad8-4db7-933f-10ef937b8fbe",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0b4a1149-7816-44e8-87ac-01c55993d596",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "id=transactionTable",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "70b34b24-05e9-4a72-89ae-915dfa3e138b",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "css=#transactionTableBody tr",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "11b9ad6a-0cf3-43ed-8f77-fd3f178f97aa",
+          "comment": "",
+          "command": "select",
+          "target": "id=filterStatus",
+          "targets": [],
+          "value": "label=Blocked"
+        },
+        {
+          "id": "c076fb5d-cbe9-4013-9fed-8fe9140935db",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a78a0449-885c-4af5-b65e-ee86dd2fbf1c",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=transactionCount",
+          "targets": [],
+          "value": "Showing 1 of 6 transactions"
+        },
+        {
+          "id": "c2efab39-2ff6-45a7-a5fa-ef3d3a9e592d",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=TXN1011-status",
+          "targets": [],
+          "value": "BLOCKED"
+        },
+        {
+          "id": "40632504-dbf1-42c9-a3a2-b71b6bcea006",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=TXN1011-riskScore",
+          "targets": [],
+          "value": "60"
+        }
+      ]
+    },
+    {
+      "id": "9d00ae14-9334-434d-b9cb-701dedfffde9",
+      "name": "TC-AD-001 Admin login",
+      "commands": [
+        {
+          "id": "13e930be-4ed9-437c-be8e-438b577b60bc",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ccd419f9-1999-4e53-b9e8-695f0e6d9eb1",
+          "comment": "",
+          "command": "open",
+          "target": "/admin-login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bb36658d-959f-42e0-ab85-d0b949d05134",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "209217dd-20a0-42b3-bd1f-4a09b6d4e3e0",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Admin Login - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b2e8332b-7fde-4a22-a4f9-8a900608fa28",
+          "comment": "",
+          "command": "echo",
+          "target": "Wrong password first",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a05e8db2-9d97-49fc-b7ca-d21088731a21",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminUsername",
+          "targets": [],
+          "value": "admin"
+        },
+        {
+          "id": "7b0ba125-425a-4cce-a32b-937bb9bd2cc0",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1aff18cb-9348-4b81-9510-2d2bf5682bd3",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminPassword",
+          "targets": [],
+          "value": "wrong"
+        },
+        {
+          "id": "d3a05e89-42ae-4c2a-a880-d3d1207994b5",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "58bcda4c-a180-4be0-b7cf-e6efccd6d308",
+          "comment": "",
+          "command": "click",
+          "target": "id=adminLoginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "28e2f2d7-259a-4003-b4c1-e719d9609ce3",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dd9e0faf-3a3a-4920-8fa4-74b5f78f9e04",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6bd148a1-13fd-444b-8977-0db67e9454e7",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "Invalid username or password."
+        },
+        {
+          "id": "398c4af1-a981-46b9-a364-74a4e058f8d7",
+          "comment": "",
+          "command": "echo",
+          "target": "A normal user cannot use the admin login",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "be0297c4-25fa-48ed-96d5-5c9fdb23d916",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminUsername",
+          "targets": [],
+          "value": "testuser"
+        },
+        {
+          "id": "646e737d-be5a-44a7-9209-4ee15dbce8ac",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c43c7402-c433-4e8f-af82-65b5dde1db10",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminPassword",
+          "targets": [],
+          "value": "Test@123"
+        },
+        {
+          "id": "cfb5a99e-1b0c-427e-a6b5-a32850a056ee",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "28129617-225b-4aef-937d-3cb391925735",
+          "comment": "",
+          "command": "click",
+          "target": "id=adminLoginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "5cc8251f-b9c0-42d3-971f-c1c823589649",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cebe3afd-6baa-4ceb-888e-ccb2447653aa",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "3fe819dd-9bfb-43d9-943c-307c05c98dc6",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "This account is not an admin account."
+        },
+        {
+          "id": "61018524-810c-47e2-abf6-fef4350dac24",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminUsername",
+          "targets": [],
+          "value": "admin"
+        },
+        {
+          "id": "955174d9-4ba6-48c1-98be-fe05a3140cc8",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "62d9a428-8b60-43b5-b1b8-e3b8e65853ef",
+          "comment": "",
+          "command": "type",
+          "target": "id=adminPassword",
+          "targets": [],
+          "value": "Admin@123"
+        },
+        {
+          "id": "85b4c7a4-8150-4c8c-8ffd-90de57d1b994",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "27510395-7177-4a33-806d-e3b2b26aee0e",
+          "comment": "",
+          "command": "click",
+          "target": "id=adminLoginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6a6a05c8-e99e-4489-b898-9ee2ce63f728",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "61a3d614-a2e8-4869-ae11-29a918bba548",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminContent",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "b89db7f5-8593-481f-a40d-ec34ff6bb9e6",
+          "comment": "",
+          "command": "assertTitle",
+          "target": "Admin Dashboard - FraudGuard Bank",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "10e09763-65c1-4677-9201-c69d387fb691",
+      "name": "TC-AD-002 Admin dashboard statistics load",
+      "commands": [
+        {
+          "id": "b31fd658-6c81-44a0-96a4-87b2102c99f7",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a711de42-f482-44e7-a862-feb1420b07ce",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login Admin",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "de69e503-d6ab-49ea-ab21-726e00242acf",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statTotalTransactions",
+          "targets": [],
+          "value": "10"
+        },
+        {
+          "id": "e7db3716-e41d-4b9c-af1a-153feb47d65b",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statApproved",
+          "targets": [],
+          "value": "8"
+        },
+        {
+          "id": "010d84b0-0897-4eb1-9436-36d5d71e64e8",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statSuspicious",
+          "targets": [],
+          "value": "1"
+        },
+        {
+          "id": "316d7466-fb8f-4b9c-9690-67094ee2ae98",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statBlocked",
+          "targets": [],
+          "value": "1"
+        },
+        {
+          "id": "a8d9cc2b-443f-4c8b-9303-57d79d362ce9",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statTotalUsers",
+          "targets": [],
+          "value": "6"
+        },
+        {
+          "id": "ea60ffc3-b9a1-440f-ba63-ff70d0a07ec4",
+          "comment": "",
+          "command": "verifyText",
+          "target": "id=statOpenAlerts",
+          "targets": [],
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "af8df704-8f03-4701-b187-1a5ebb32a4d0",
+      "name": "TC-AD-004 Fraud alerts displayed and reviewed",
+      "commands": [
+        {
+          "id": "8df6ec4f-e878-44c1-8240-bf21c33b3b5c",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3beabcb1-c112-46a3-b122-a363aafc650c",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login Admin",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "082b5c1f-f8bc-4fec-b2ab-458f78fba618",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=alert-TXN1009",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dd766d2c-5a49-4636-9cdf-3f657a220be4",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=alert-TXN1009-user",
+          "targets": [],
+          "value": "riskyuser"
+        },
+        {
+          "id": "d05250bd-0b5d-4dc3-bb5c-46acf40258e1",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=alert-TXN1009-riskScore",
+          "targets": [],
+          "value": "60"
+        },
+        {
+          "id": "8968d76f-1c68-4c7c-a4f6-1a22817e9a16",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=alert-TXN1009-status",
+          "targets": [],
+          "value": "OPEN"
+        },
+        {
+          "id": "25016784-3853-4dd5-a2b8-670d250b4966",
+          "comment": "",
+          "command": "click",
+          "target": "id=reviewBtn-TXN1009",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f8d3c4b9-1859-4faf-81df-c0e148ddcd83",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a141af66-b46d-4da0-a215-01b4f3006b99",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "6c2746b1-2feb-4c02-8d60-c8fbc24a1a80",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "Alert for TXN1009 marked as reviewed."
+        },
+        {
+          "id": "11b0d63f-5032-4fc8-8363-f0e3ffe9caea",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=alert-TXN1009-status",
+          "targets": [],
+          "value": "REVIEWED"
+        },
+        {
+          "id": "88a9654f-7ba1-4006-8bdb-d1c9a11f77d1",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=statOpenAlerts",
+          "targets": [],
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "d7e5c135-a252-4db7-b56b-4a54e58035d1",
+      "name": "TC-AD-006 Filter high-risk transactions",
+      "commands": [
+        {
+          "id": "24a3e81b-615f-49b2-a48e-e3036a1654b3",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "560914be-b867-4008-8069-58f701875d28",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login Admin",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "68d3fc1d-1b7f-4547-968d-14bcfb88f970",
+          "comment": "",
+          "command": "select",
+          "target": "id=adminRiskFilter",
+          "targets": [],
+          "value": "label=High"
+        },
+        {
+          "id": "23bd8564-42d6-4d8c-8860-65b6246b5e1e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "66ad1c94-5028-4e32-a6ed-1e8a0c245ef2",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminTransactionCount",
+          "targets": [],
+          "value": "Showing 1 of 10 transactions"
+        },
+        {
+          "id": "1d05a7b2-999c-47d4-be4d-305d9b8b99e5",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=admin-TXN1009-riskLevel",
+          "targets": [],
+          "value": "HIGH"
+        },
+        {
+          "id": "e4ff7301-2b08-4019-9bed-6a3c091b1519",
+          "comment": "",
+          "command": "select",
+          "target": "id=adminRiskFilter",
+          "targets": [],
+          "value": "label=Medium"
+        },
+        {
+          "id": "934b9dd7-64ab-48a9-bc5f-50a505fcb208",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6e14fe3f-3298-46c1-aa0c-a3dd19cabb17",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminTransactionCount",
+          "targets": [],
+          "value": "Showing 1 of 10 transactions"
+        },
+        {
+          "id": "d2f53fc2-c0ce-4207-a85e-c3b781df4636",
+          "comment": "",
+          "command": "assertElementPresent",
+          "target": "id=admin-txn-TXN1010",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "9e137aac-d454-4b35-ac31-8a47c73cc443",
+      "name": "TC-AD-007 Block user",
+      "commands": [
+        {
+          "id": "21de3528-b823-4f9f-be73-4be470cc327a",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9c351d47-6ead-4815-abf5-33cfe42ac396",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login Admin",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "385e8849-6e10-4fac-a1b1-df7efba44afc",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=status-riskyuser",
+          "targets": [],
+          "value": "Active"
+        },
+        {
+          "id": "1363326b-8dde-4c4c-823e-a6903cc69004",
+          "comment": "",
+          "command": "click",
+          "target": "id=blockBtn-riskyuser",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "803f2d84-a5fc-4ec5-b782-d540fcb7debb",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c371a275-0775-4d9e-ba92-65230958cebb",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "fe61e75c-2b43-46b9-90b6-43cf617e347c",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "User riskyuser has been blocked."
+        },
+        {
+          "id": "823bf1d3-0b44-42ad-ab6c-08f224cdc0a3",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=status-riskyuser",
+          "targets": [],
+          "value": "Blocked"
+        },
+        {
+          "id": "27cb0dc6-3694-4690-a437-3877b843d14b",
+          "comment": "",
+          "command": "echo",
+          "target": "The blocked user can no longer login",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "046e1640-47cd-4ff1-aabb-466a581ab15e",
+          "comment": "",
+          "command": "click",
+          "target": "id=logoutButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f68925e2-257f-4223-aa9a-009555092ba5",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c35dd75d-1d97-4a16-9442-cae4c1659c37",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "5f1a3bb5-b7f2-4331-8cba-c4650ba6d8e4",
+          "comment": "",
+          "command": "open",
+          "target": "/login.html",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "aba6861e-2351-41ac-a21c-a63975485a2b",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "85493844-7c04-4784-9dd6-60cc7c1e283c",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginUsername",
+          "targets": [],
+          "value": "riskyuser"
+        },
+        {
+          "id": "8300fce9-1f42-457f-9592-e7fad44ac05c",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "20ab4c34-f1f1-4931-8555-c1a01722048e",
+          "comment": "",
+          "command": "type",
+          "target": "id=loginPassword",
+          "targets": [],
+          "value": "Risky@123"
+        },
+        {
+          "id": "bb915ebd-eb29-42fb-9a7e-46ea2041852e",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "91f3d017-79eb-4162-9b01-67315aa30943",
+          "comment": "",
+          "command": "click",
+          "target": "id=loginButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8ee7361f-2b74-4fdf-b712-d778c42f65bd",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cae79fe8-b50a-46c2-9d23-a5cf1fcb7e35",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "f129b2c0-2fd4-45ae-acf4-04e0d639f6e2",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=loginMessage",
+          "targets": [],
+          "value": "Your account has been blocked by the administrator."
+        }
+      ]
+    },
+    {
+      "id": "22929227-2af9-46e4-91a6-9b0a38d78248",
+      "name": "TC-AD-008 Unblock user (also clears login lock)",
+      "commands": [
+        {
+          "id": "d6c2c5e5-defd-43ed-a904-4ae57561b80e",
+          "comment": "Start every test from the same known data",
+          "command": "run",
+          "target": "Helper - Reset Demo Data",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "22b74f98-137d-4788-856c-c5615172da00",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login Admin",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fdb6af0f-90e4-41a7-81d6-f99d16a00572",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=status-lockeduser",
+          "targets": [],
+          "value": "Locked"
+        },
+        {
+          "id": "592854b1-652c-4805-9a15-8d3074be79ea",
+          "comment": "",
+          "command": "click",
+          "target": "id=unblockBtn-lockeduser",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "838f02b6-d074-428b-8113-166c98a72b26",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0cad9e2a-d8a5-4b0e-886c-facf4f255c09",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "02349ca1-a90b-49a1-97b3-130bce6f49ec",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=adminMessage",
+          "targets": [],
+          "value": "User lockeduser has been unblocked."
+        },
+        {
+          "id": "d0d973c8-c45d-428d-9441-bbb2e3e109ca",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=status-lockeduser",
+          "targets": [],
+          "value": "Active"
+        },
+        {
+          "id": "1b3fcaad-eb5e-4106-9326-4ccde8fa71e2",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=failed-lockeduser",
+          "targets": [],
+          "value": "0"
+        },
+        {
+          "id": "5aec600a-19cf-4bdd-83dc-1bc46b59e0f4",
+          "comment": "",
+          "command": "echo",
+          "target": "The user can login again",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "079de78d-9a14-4a5d-9faf-3304a58d0131",
+          "comment": "",
+          "command": "click",
+          "target": "id=logoutButton",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "65a81304-b733-4597-99d8-e3a8fd6dcfb3",
+          "comment": "Demo pacing delay",
+          "command": "pause",
+          "target": "700",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6df84520-b00b-4517-8dcf-15935a08755a",
+          "comment": "",
+          "command": "waitForElementVisible",
+          "target": "id=adminLoginMessage",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "27c04c3f-380a-4cee-8d5c-77a3dd420e96",
+          "comment": "",
+          "command": "store",
+          "target": "lockeduser",
+          "targets": [],
+          "value": "loginUser"
+        },
+        {
+          "id": "b7f80f13-5b4a-4a8d-8d77-a53bc8e545a4",
+          "comment": "",
+          "command": "store",
+          "target": "Locked@123",
+          "targets": [],
+          "value": "loginPass"
+        },
+        {
+          "id": "fc23923d-f3ff-4a1b-a801-54c9b1132046",
+          "comment": "",
+          "command": "run",
+          "target": "Helper - Login User",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d6029be8-5a4a-4764-89f2-9ae939a6fdc9",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=welcomeMessage",
+          "targets": [],
+          "value": "Welcome, Locked User!"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "cd58eb55-714c-4a4d-84ef-c62fb8a61eb9",
+      "name": "Suite 1 - Registration",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "a295930d-1d1f-42c8-afa7-f0a7f413c019",
+        "4688c90d-0e7e-40c6-994a-01118e50870e",
+        "07bee70e-813d-472e-a4df-95ba1b41ac93",
+        "525dd5da-0c0d-417b-b2e1-c4e0c970404a"
+      ]
+    },
+    {
+      "id": "ad235cf2-0646-45c0-914c-2dc4f9af46e1",
+      "name": "Suite 2 - Login",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "21a3affc-c71d-4a8e-abe6-b64aaf5970c9",
+        "b2cf8979-882c-473e-ac8a-f2e5419ebc8a",
+        "f16e6f1b-51a6-4ec5-a283-3a5944b1e7e3",
+        "4cbfcdfd-087a-47fb-9120-bf9770c46122"
+      ]
+    },
+    {
+      "id": "7339c959-8be1-459f-abb5-5eb3bf61d9be",
+      "name": "Suite 3 - Dashboard",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "ddd38aa6-a809-4d08-86ea-8a21e2cf6356",
+        "232b448b-c16e-4587-a57a-2a2bcf705bd7",
+        "adcc1a80-12bd-4870-9630-60ab3f2a1b06"
+      ]
+    },
+    {
+      "id": "f29509a0-ebbe-413c-8ff8-a51e82a2bfec",
+      "name": "Suite 4 - Money Transfer",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "6de8b378-ea83-4883-81b7-511656a4d1da",
+        "9cbee24e-e314-424a-b1d5-fc2ec5b48e26",
+        "ecd9a33f-3c98-4c47-ae0e-f5bf6fdeaed2",
+        "f5ceb0a6-b172-4307-a411-a81c685704bb"
+      ]
+    },
+    {
+      "id": "a4c51a21-ae1e-4fa8-8758-ec4098a00e04",
+      "name": "Suite 5 - Fraud Detection",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "99993bbe-c4c0-415f-8c9a-a6017f47e85c",
+        "b009ccd3-aafd-442e-8394-60414742d665",
+        "dcbc65a6-2774-470b-b57f-a1272fcea5d9",
+        "dc17ac7c-75c6-4803-b285-6c9e0dc0fad0",
+        "c10dc027-7c5f-47bb-b968-e4cb6fcc75db",
+        "8c200354-bfa1-42c4-9591-98578dbe2700"
+      ]
+    },
+    {
+      "id": "7cd57b78-2514-4b19-9506-1ebf12643b2e",
+      "name": "Suite 6 - Transaction History",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "082140ed-0982-4119-8415-21dd02e7e12f",
+        "ed12125f-f041-4629-b7cd-da1a663c572a",
+        "6599f21e-a615-4c17-b74f-b9e810bf3618"
+      ]
+    },
+    {
+      "id": "144e430a-f516-4332-bf65-58c6a618532c",
+      "name": "Suite 7 - Admin",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "9d00ae14-9334-434d-b9cb-701dedfffde9",
+        "10e09763-65c1-4677-9201-c69d387fb691",
+        "af8df704-8f03-4701-b187-1a5ebb32a4d0",
+        "d7e5c135-a252-4db7-b56b-4a54e58035d1",
+        "9e137aac-d454-4b35-ac31-8a47c73cc443",
+        "22929227-2af9-46e4-91a6-9b0a38d78248"
+      ]
+    },
+    {
+      "id": "207ff0d6-9c70-45ae-b0c7-6d918cdfb965",
+      "name": "Helpers (called by other tests)",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "a7380145-783d-4f62-957c-6989804af3c4",
+        "37fe78c0-8714-4494-b66b-ef22eccd5459",
+        "c9e8ef8e-950a-4805-83df-74d2bb0d5576",
+        "ddd5109d-28dc-4fae-8d66-94c6dca054be",
+        "1c5730e3-1241-4075-b681-f35f53cb4baf"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:3000/"
+  ],
+  "plugins": []
+}

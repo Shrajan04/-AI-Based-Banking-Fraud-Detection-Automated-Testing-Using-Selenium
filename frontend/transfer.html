@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer Money - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank</div>
+    <div class="nav">
+      <a href="dashboard.html" id="navDashboard">Dashboard</a>
+      <a href="transfer.html" id="navTransfer" class="active">Transfer Money</a>
+      <a href="transactions.html" id="navTransactions">Transactions</a>
+      <a href="profile.html" id="navProfile">Profile</a>
+      <button type="button" id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Transfer Money</h1>
+    <div class="two-col">
+      <div>
+        <div class="card">
+          <p>Available balance: <b id="transferBalance">...</b> &nbsp; (Account <span id="transferFromAccount"></span>)</p>
+          <div id="transferMessage" class="message"></div>
+
+          <form id="transferForm" novalidate>
+            <div class="form-group">
+              <label for="receiverAccount">Receiver Account Number</label>
+              <input type="text" id="receiverAccount" placeholder="e.g. 10000002">
+            </div>
+            <div class="form-group">
+              <label for="transferAmount">Amount (₹)</label>
+              <input type="text" id="transferAmount" placeholder="e.g. 1000">
+            </div>
+            <div class="form-group">
+              <label for="transferDescription">Description (optional)</label>
+              <input type="text" id="transferDescription" maxlength="100">
+            </div>
+
+            <div id="testTimeSection" class="form-group hidden">
+              <label for="timeMode">Transaction Time (testing)</label>
+              <select id="timeMode">
+                <option value="current">Current Time</option>
+                <option value="custom">Custom Test Time</option>
+              </select>
+              <input type="text" id="customTime" class="hidden" placeholder="HH:MM e.g. 02:30" style="margin-top:6px">
+              <div class="hint">Only for testing. Lets the tests choose the hour used by the "unusual time" fraud rule.</div>
+            </div>
+
+            <button type="submit" class="btn" id="transferButton">Transfer</button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div id="transferResult" class="card result">
+          <h2>Transaction Result</h2>
+          <div id="fraudAlert" class="fraud-box"></div>
+          <div id="transferSuccess" class="message"></div>
+          <table>
+            <tr><td>Transaction ID</td><td id="resultTransactionId"></td></tr>
+            <tr><td>Amount</td><td id="resultAmount"></td></tr>
+            <tr><td>Receiver</td><td id="resultReceiver"></td></tr>
+            <tr><td>Date / Time</td><td id="resultDateTime"></td></tr>
+            <tr><td>Status</td><td id="resultStatus" class="badge"></td></tr>
+            <tr><td>Risk Score</td><td id="resultRiskScore"></td></tr>
+            <tr><td>Risk Level</td><td id="resultRiskLevel" class="badge"></td></tr>
+            <tr><td>Reasons</td><td><ul id="resultReasons" style="margin:0;padding-left:18px"></ul></td></tr>
+            <tr><td>New Balance</td><td id="resultNewBalance"></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/transfer.js"></script>
+</body>
+</html>

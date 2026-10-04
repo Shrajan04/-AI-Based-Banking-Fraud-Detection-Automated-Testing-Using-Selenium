@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand"><a href="index.html" style="color:#fff;text-decoration:none">FraudGuard Bank</a></div>
+    <div class="nav"><a href="login.html" id="loginLink">Login</a></div>
+  </div>
+
+  <div class="container narrow">
+    <div class="card">
+      <h1 id="registerHeading">Open a New Account</h1>
+      <div id="registerMessage" class="message"></div>
+      <p id="registerAccountInfo" class="hidden">Your account number is <b id="registerAccountNumber"></b>.
+        <a href="login.html" id="goToLoginLink">Go to Login</a></p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName">
+        </div>
+        <div class="form-group">
+          <label for="regUsername">Username</label>
+          <input type="text" id="regUsername">
+          <div class="hint">4-20 characters: letters, numbers or underscore</div>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="text" id="regEmail">
+        </div>
+        <div class="form-group">
+          <label for="regPhone">Phone</label>
+          <input type="text" id="regPhone">
+          <div class="hint">10 digits</div>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword">
+          <div class="hint">At least 6 characters and must contain a number</div>
+        </div>
+        <div class="form-group">
+          <label for="regConfirmPassword">Confirm Password</label>
+          <input type="password" id="regConfirmPassword">
+        </div>
+        <div class="form-group">
+          <label for="regInitialBalance">Initial Balance (₹)</label>
+          <input type="text" id="regInitialBalance">
+          <div class="hint">Between 0 and 10,00,000</div>
+        </div>
+        <button type="submit" class="btn" id="registerButton">Register</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

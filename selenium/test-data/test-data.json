@@ -1,0 +1,27 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "note": "All data is fake. It is loaded by 'npm run seed' or by opening http://localhost:3000/reset.html",
+  "users": [
+    { "role": "admin", "username": "admin",      "password": "Admin@123",  "account": "10000000", "balance": 0,      "notes": "Use the Admin Login page" },
+    { "role": "user",  "username": "testuser",   "password": "Test@123",   "account": "10000001", "balance": 50000,  "notes": "Main test user. History with 10000002 (avg Rs. 2,250)" },
+    { "role": "user",  "username": "ravi",       "password": "Ravi@123",   "account": "10000002", "balance": 25000,  "notes": "Known receiver for testuser" },
+    { "role": "user",  "username": "priya",      "password": "Priya@123",  "account": "10000003", "balance": 30000,  "notes": "NEW receiver for testuser" },
+    { "role": "user",  "username": "richuser",   "password": "Rich@123",   "account": "10000004", "balance": 500000, "notes": "Large balance for the Rs. 1,50,000 scenario (avg Rs. 5,000)" },
+    { "role": "user",  "username": "riskyuser",  "password": "Risky@123",  "account": "10000005", "balance": 80000,  "notes": "Has 1 blocked + 1 suspicious transaction" },
+    { "role": "user",  "username": "lockeduser", "password": "Locked@123", "account": "10000006", "balance": 10000,  "notes": "Starts LOCKED (3 failed logins)" }
+  ],
+  "seedTransactions": {
+    "count": 10,
+    "firstId": "TXN1001",
+    "lastId": "TXN1010",
+    "nextNewId": "TXN1011",
+    "flagged": { "TXN1009": "HIGH / BLOCKED (riskyuser)", "TXN1010": "MEDIUM / SUSPICIOUS (riskyuser)" }
+  },
+  "fraudScenarios": [
+    { "id": "A", "user": "testuser", "receiver": "10000002", "amount": 1000,   "testTime": "10:00", "expectedScore": 0,  "expectedLevel": "LOW",    "expectedStatus": "APPROVED" },
+    { "id": "B", "user": "richuser", "receiver": "10000002", "amount": 150000, "testTime": "10:00", "expectedScore": 60, "expectedLevel": "HIGH",   "expectedStatus": "BLOCKED" },
+    { "id": "C", "user": "testuser", "receiver": "10000002", "amount": 500,    "testTime": "10:00", "repeat": 4, "expectedScore": 30, "expectedLevel": "MEDIUM", "expectedStatus": "SUSPICIOUS", "notes": "The 4th transfer is flagged" },
+    { "id": "D", "user": "testuser", "receiver": "10000002", "amount": 1000,   "testTime": "02:30", "expectedScore": 30, "expectedLevel": "MEDIUM", "expectedStatus": "SUSPICIOUS" },
+    { "id": "E", "user": "testuser", "receiver": "10000003", "amount": 10000,  "testTime": "02:30", "expectedScore": 60, "expectedLevel": "HIGH",   "expectedStatus": "BLOCKED" }
+  ]
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - FraudGuard Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">FraudGuard Bank <small>Admin Panel</small></div>
+    <div class="nav">
+      <a href="#monitoring" id="navMonitoring">Transactions</a>
+      <a href="#alerts" id="navAlerts">Fraud Alerts</a>
+      <a href="#users" id="navUsers">Users</a>
+      <button type="button" id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 id="adminHeading">Admin Dashboard</h1>
+    <div id="adminMessage" class="message"></div>
+
+    <div id="adminContent" class="hidden">
+      <div class="stats">
+        <div class="stat"><div class="label">Total Transactions</div><div class="value" id="statTotalTransactions"></div></div>
+        <div class="stat green"><div class="label">Approved</div><div class="value" id="statApproved"></div></div>
+        <div class="stat orange"><div class="label">Suspicious</div><div class="value" id="statSuspicious"></div></div>
+        <div class="stat red"><div class="label">Blocked</div><div class="value" id="statBlocked"></div></div>
+        <div class="stat"><div class="label">Total Users</div><div class="value" id="statTotalUsers"></div></div>
+        <div class="stat orange"><div class="label">Open Fraud Alerts</div><div class="value" id="statOpenAlerts"></div></div>
+      </div>
+
+      <!-- Transaction monitoring -->
+      <div class="card" id="monitoring">
+        <h2>Transaction Monitoring</h2>
+        <div class="toolbar">
+          <div class="form-group">
+            <label for="adminRiskFilter">Risk Level</label>
+            <select id="adminRiskFilter">
+              <option value="ALL">All</option>
+              <option value="LOW">Low</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="HIGH">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="adminSearch">Search</label>
+            <input type="text" id="adminSearch" placeholder="Transaction ID, user, account...">
+          </div>
+          <button type="button" class="btn" id="adminSearchButton">Search</button>
+          <button type="button" class="btn grey" id="adminClearButton">Clear</button>
+        </div>
+        <p id="adminTransactionCount"></p>
+        <div class="table-wrap">
+          <table id="adminTransactionTable">
+            <thead>
+              <tr><th>Transaction ID</th><th>User</th><th>Receiver</th><th>Amount</th><th>Risk Score</th><th>Risk Level</th><th>Status</th><th>Date</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminTransactionBody"></tbody>
+          </table>
+        </div>
+
+        <div id="transactionDetails" class="card hidden" style="margin-top:16px;background:#f8fafc">
+          <h2>Transaction Details: <span id="detailTransactionId"></span></h2>
+          <p>
+            <b>Sender:</b> <span id="detailSender"></span> &nbsp;
+            <b>Receiver:</b> <span id="detailReceiver"></span> &nbsp;
+            <b>Amount:</b> <span id="detailAmount"></span><br>
+            <b>Description:</b> <span id="detailDescription"></span><br>
+            <b>Risk Score:</b> <span id="detailRiskScore"></span> &nbsp;
+            <b>Risk Level:</b> <span id="detailRiskLevel"></span> &nbsp;
+            <b>Status:</b> <span id="detailStatus"></span>
+          </p>
+          <b>Why was it flagged?</b>
+          <ul id="detailReasons"></ul>
+          <button type="button" class="btn small grey" id="closeDetailsButton">Close</button>
+        </div>
+      </div>
+
+      <!-- Fraud alerts -->
+      <div class="card" id="alerts">
+        <h2>Fraud Alerts</h2>
+        <div class="table-wrap">
+          <table id="fraudAlertTable">
+            <thead>
+              <tr><th>User</th><th>Transaction</th><th>Risk Score</th><th>Risk Level</th><th>Reasons</th><th>Date</th><th>Alert Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="fraudAlertBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Users -->
+      <div class="card" id="users">
+        <h2>User Management</h2>
+        <p class="hint">"Unblock" also clears a login lock caused by 3 wrong passwords.</p>
+        <div class="table-wrap">
+          <table id="userTable">
+            <thead>
+              <tr><th>Username</th><th>Name</th><th>Account</th><th>Balance</th><th>Failed Logins</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
